@@ -48,7 +48,7 @@ const RevenueTable = ( barIndex ) => {
   const [mainAgent, setMainAgent] = useState({})
 
   const [currency, setCurrency] = useState('$')
-  const [aggregatedData, setAggregatedData] = useState(JSON.parse(localStorage.getItem('Performace Table')));
+  const [aggregatedData, setAggregatedData] = useState(JSON.parse(localStorage.getItem('aggregated data')));
   const [agentPerformance, setAgentPerformance] = useState(JSON.parse(localStorage.getItem('tableData1')))
   const [forecastSummary, setForecastSummary] = useState();
 
@@ -69,8 +69,8 @@ const RevenueTable = ( barIndex ) => {
       const formattedAgents = data.map((agent, index) => {
         const kpiData = JSON.parse(agent.kpi_data);
         const target = kpiData.kpiData[barIndex.barIndex].target;
-        console.log("Actual Value:  ", aggregatedData)
-        const actualValue = aggregatedData?.[barIndex.barIndex].actual || 1;
+        console.log("Actual Value:  ", aggregatedData?.[index]?.aggregatedValues[barIndex.barIndex])
+        const actualValue = aggregatedData?.[index]?.aggregatedValues[barIndex.barIndex] || 1;
         const targetPercentage = (actualValue / target) * 100;
 
         console.log("Target Value:  ", target)
