@@ -172,7 +172,7 @@ const AddNewHeadOfDepartment = ({ set, setter, onDepartmentHead}) => {
       const payloadMail = {
         role: "Department Head",
         email: email,
-        link: `https://salez-up.vercel.app/TeamLeader/${link}`,
+        link: `https://salez-up-mvp.vercel.app/TeamLeader/${link}`,
         password: password,
       };
 
